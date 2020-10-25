@@ -6,9 +6,10 @@
         </tr>
     </thead>
     <tbody>
-        <tr>
+        <tr *ngFor="let product of products" [ngClass]="{'clearance': product.clearance}">
             <td>{{product.name}}</td>
-            <td>{{product.price}}</td>
+            <td>{{product.price | currency}}</td>
+            <td><span class="badge badge-danger" *ngIf="product.stock == 0">Sin stock</span></td>
         </tr>
     </tbody>
 </table>
