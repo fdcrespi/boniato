@@ -11,11 +11,11 @@
         <tr *ngFor="let product of products" [ngClass]="{'clearance': product.clearance}">
             <td>{{product.name}}</td>
             <td>{{product.price | currency}}</td>
-            <td><span class="badge badge-danger" *ngIf="product.stock == 0">Sin stock</span></td>
             <td>
-                <button class="btn btn-sm btn-success" (click)="downQuantity(product)">-</button>
-                <input type="text" [(ngModel)]="product.quantity" (keyup)="changeQuantity($event, product)">
-                <button class="btn btn-sm btn-success" (click)="upQuantity(product)">+</button>
+                <span class="badge badge-danger" *ngIf="product.stock == 0">Sin stock</span>
+            </td>
+            <td>
+                <app-input-integer [(quantity)]="product.quantity" [max]="product.stock" *ngIf="product.stock" (maxReached)="maxReached($event)"></app-input-integer>
             </td>
         </tr>
     </tbody>

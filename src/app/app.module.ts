@@ -9,6 +9,7 @@ import { CartShoppingComponent } from './cart-shopping/cart-shopping.component';
 import {FormsModule } from '@angular/forms';
 import { BoniatoAboutComponent } from './boniato-about/boniato-about.component';
 import { BoniatoProductComponent } from './boniato-product/boniato-product.component';
+import { InputIntegerComponent } from './input-integer/input-integer.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { BoniatoProductComponent } from './boniato-product/boniato-product.compo
     ProductListComponent,
     CartShoppingComponent,
     BoniatoAboutComponent,
-    BoniatoProductComponent
+    BoniatoProductComponent,
+    InputIntegerComponent
   ],
   imports: [
     BrowserModule,
