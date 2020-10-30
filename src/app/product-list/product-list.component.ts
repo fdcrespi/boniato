@@ -16,6 +16,7 @@ export class ProductListComponent implements OnInit {
       price: 130,
       stock: 5,
       clearance: false,
+      quantity: 0
     },
     {
       name: "Sorrentinos de calabaza",
@@ -23,13 +24,15 @@ export class ProductListComponent implements OnInit {
       price: 130,
       stock: 0,
       clearance: true,
+      quantity: 0
     },
     {
       name: "Tres son multitud",
       type: "Vino",
       price: 180,
-      stock: 0,
+      stock: 2,
       clearance: false,
+      quantity: 0
     }
   ];
 
@@ -38,4 +41,17 @@ export class ProductListComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  upQuantity(product: Product): void{
+    if (product.stock > product.quantity) 
+      product.quantity++;
+  }
+
+  downQuantity(product: Product): void{
+    if (product.quantity > 0) 
+      product.quantity--;
+  }
+
+  changeQuantity (event,product: Product): void{
+    console.log (event.key);
+  }
 }

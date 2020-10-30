@@ -3,6 +3,8 @@
         <tr>
             <th>Nombre</th>
             <th>Precio</th>
+            <th>Stock</th>
+            <th>Compra</th>
         </tr>
     </thead>
     <tbody>
@@ -10,6 +12,11 @@
             <td>{{product.name}}</td>
             <td>{{product.price | currency}}</td>
             <td><span class="badge badge-danger" *ngIf="product.stock == 0">Sin stock</span></td>
+            <td>
+                <button class="btn btn-sm btn-success" (click)="downQuantity(product)">-</button>
+                <input type="text" [(ngModel)]="product.quantity" (keyup)="changeQuantity($event, product)">
+                <button class="btn btn-sm btn-success" (click)="upQuantity(product)">+</button>
+            </td>
         </tr>
     </tbody>
 </table>
