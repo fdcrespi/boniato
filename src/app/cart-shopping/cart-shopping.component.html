@@ -1,6 +1,6 @@
 <div class="mt-2">
     <h2 class="border-bottom">Mi Carrito</h2>
-    <ul class="list-group list-group-flush">
+    <ul class="list-group list-group-flush border-bottom">
         <li *ngFor="let product of cartList$ | async" class="list-group-item d-flex">
             <div style="width: 10rem;">
                 <img class="card-img-top" [src]="product.image" alt="Card image cap">
@@ -19,7 +19,10 @@
             </div>
         </li>
     </ul>
-    <div *ngIf="totalProd$ == 0" class="text-center">
+    <div class="mt-2">
+        <h6 class="text-right">Subtotal: {{subtotalCart$ | currency}}</h6>
+    </div>
+    <div *ngIf="totalProd$ == 0" class="text-center mt-2">
         <p class="h6">El carrito esta vacio</p>
         <a [routerLink]="['/']">Seguir comprando</a>
     </div>

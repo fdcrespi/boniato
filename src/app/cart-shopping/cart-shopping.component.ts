@@ -12,9 +12,11 @@ export class CartShoppingComponent implements OnInit {
 
   cartList$: Observable<Product[]>;
   totalProd$:number;
+  subtotalCart$:number;
   constructor(private cart: ProductCartService) {
     this.cartList$ = cart.shopList.asObservable();
     cart.total.subscribe(observableTotal => this.totalProd$ = observableTotal);
+    cart.subtotal.subscribe(observableSubtotal => this.subtotalCart$ = observableSubtotal);
   }
 
   ngOnInit(): void {
