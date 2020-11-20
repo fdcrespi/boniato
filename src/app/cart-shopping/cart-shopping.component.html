@@ -19,7 +19,7 @@
             </div>
         </li>
     </ul>
-    <div class="mt-2 border-top" *ngIf="totalProd$">
+    <div class="mt-2 p-2 border-top" *ngIf="totalProd$">
         <h6 class="text-right">Subtotal: {{subtotalCart$ | currency}}</h6>
     </div>
     <div *ngIf="totalProd$ == 0" class="text-center mt-2">
