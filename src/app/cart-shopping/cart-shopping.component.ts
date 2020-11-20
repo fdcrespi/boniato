@@ -11,8 +11,10 @@ import { Product } from '../product-list/product';
 export class CartShoppingComponent implements OnInit {
 
   cartList$: Observable<Product[]>;
+  totalProd$:number;
   constructor(private cart: ProductCartService) {
     this.cartList$ = cart.shopList.asObservable();
+    cart.total.subscribe(observableTotal => this.totalProd$ = observableTotal);
   }
 
   ngOnInit(): void {

@@ -1,5 +1,5 @@
-<div>
-    <h2>Mi Carrito</h2>
+<div class="mt-2">
+    <h2 class="border-bottom">Mi Carrito</h2>
     <ul class="list-group list-group-flush">
         <li *ngFor="let product of cartList$ | async" class="list-group-item d-flex">
             <div style="width: 10rem;">
@@ -19,4 +19,8 @@
             </div>
         </li>
     </ul>
+    <div *ngIf="totalProd$ == 0" class="text-center">
+        <p class="h6">El carrito esta vacio</p>
+        <a [routerLink]="['/']">Seguir comprando</a>
+    </div>
 </div>

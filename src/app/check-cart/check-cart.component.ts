@@ -13,7 +13,6 @@ export class CheckCartComponent implements OnInit {
   totalProd$:number;
   constructor(private cart: ProductCartService) {
     cart.total.subscribe(obserbableTotal => this.totalProd$ = obserbableTotal);
-    console.log(this.totalProd$);
   }
 
   ngOnInit(): void {
