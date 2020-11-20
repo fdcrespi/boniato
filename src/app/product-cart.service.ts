@@ -27,5 +27,13 @@ constructor() { }
     this.total.next(this._totalProduct);
   }
 
+  removeToCart(product: Product){
+    let i = this._shopList.indexOf(product);
+    this._shopList.splice( i, 1 );
+    this._totalProduct--;
+    this.shopList.next(this._shopList); //es equivalente al emitt de eventos.
+    this.total.next(this._totalProduct);
+  }
+
 
 }
