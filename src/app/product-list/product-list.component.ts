@@ -12,41 +12,50 @@ export class ProductListComponent implements OnInit {
 
   products: Product[] = [
     {
-      name: "Ravioles de verdura",
+      name: "Ravioles de Batata",
       type: "Pasta",
       price: 130,
       stock: 5,
-      description: "Ravioles rellenos con verdura. Se venden por docena",
+      description: "Ravioles rellenos de Batata, cebolla caramelizada y corazon de roquefort. En masa de hongo de pino. Se venden por docena",
       clearance: false,
-      quantity: 0
+      quantity: 0,
+      image: './assets/img/ravioles-batatacebollayroque.jpg',
     },
     {
-      name: "Sorrentinos de calabaza",
+      name: "Sorrentinos de Bondiola",
+      type: "Pasta",
+      price: 150,
+      stock: 0,
+      description: "Sorrentinos rellenos de Bondiola braseada con vegetales asados. En masa de cúrcuma y espinaca. Se venden por docena",
+      clearance: true,
+      quantity: 0,
+      image: './assets/img/sorrentinos-vegetales.jpg',
+    },
+    {
+      name: "Ravioles de Ricota",
       type: "Pasta",
       price: 130,
-      stock: 0,
-      description: "Sorrentinos rellenos con calabaza. Se venden por docena",
-      clearance: true,
-      quantity: 0
+      stock: 5,
+      description: "Ravioles rellenos de Ricota, tomate seco y nuez. En masa de remolacha y cúrcuma. Se venden por docena",
+      clearance: false,
+      quantity: 0,
+      image: './assets/img/ravioles-tomatericotaynuez.jpg',
     },
     {
-      name: "Tres son multitud",
+      name: "Loco de remate",
       type: "Vino",
       price: 180,
       stock: 2,
-      description: "Malbec",
+      description: "Podes acompañar tus pastas con nuestros vinos exclusivos de la bodefa Sánchez Potenzoni.",
       clearance: false,
-      quantity: 0
+      quantity: 0,
+      image: './assets/img/loco-malbec.jpg',
     }
   ];
 
   constructor(private cart: ProductCartService) { }
 
   ngOnInit(): void {
-  }
-
-  maxReached(m: string): void{
-    alert(m);
   }
 
   addToCart(product): void{

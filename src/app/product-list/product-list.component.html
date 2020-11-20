@@ -1,30 +1,7 @@
-<!-- <table class="table">
-    <thead>
-        <tr>
-            <th>Nombre</th>
-            <th>Precio</th>
-            <th>Stock</th>
-            <th>Compra</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let product of products" [ngClass]="{'clearance': product.clearance}">
-            <td>{{product.name}}</td>
-            <td>{{product.price | currency}}</td>
-            <td>
-                <span class="badge badge-danger" *ngIf="product.stock == 0">Sin stock</span>
-            </td>
-            <td>
-                <app-input-integer [(quantity)]="product.quantity" [max]="product.stock" *ngIf="product.stock" (maxReached)="maxReached($event)"></app-input-integer>
-                <button class="btn" (click)="addToCart(product)">Comprar</button>
-            </td>
-        </tr>
-    </tbody>
-</table> -->
-<ul class="d-flex justify-content-around mt-2 ">
+<ul class="d-flex justify-content-around mt-2 flex-wrap">
     <li *ngFor="let product of products" class="list-unstyled">
         <div class="card" style="width: 18rem;">
-            <img class="card-img-top" src="https://gesisarg.com/sistema-gestion/res/archivos/imagen_articulo_por_defecto.jpg" alt="Card image cap">
+            <img class="card-img-top" [src]="product.image" alt="Card image cap">
             <div class="card-body">
                 <h5 class="card-title">{{product.name}}</h5>
                 <p class="card-text">{{product.description}}</p>
@@ -32,7 +9,7 @@
                 <div class="d-flex m-0 align-items-center justify-content-center">
                     <span class="badge badge-danger" *ngIf="product.stock == 0">Sin stock</span>
                     <app-input-integer [(quantity)]="product.quantity" [max]="product.stock" *ngIf="product.stock"></app-input-integer>
-                    <button class="btn btn-sm btn-outline-success ml-1" (click)="addToCart(product)" *ngIf="product.stock">Agregar al carrito</button>
+                    <button class="btn btn-sm btn-outline-success ml-1" [ngClass]="{disabled : product.quantity == 0}" (click)="addToCart(product)" *ngIf="product.stock">Agregar al carrito</button>
                 </div>
                 <span class="badge badge-danger w-100" *ngIf="product.stock == product.quantity && product.stock">Stock máximo</span>
             </div>

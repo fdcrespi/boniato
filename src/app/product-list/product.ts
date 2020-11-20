@@ -6,4 +6,5 @@ export interface Product {
     description: string,
     clearance: boolean,
     quantity: number,
+    image: string,
 }
