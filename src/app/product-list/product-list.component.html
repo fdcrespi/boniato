@@ -9,7 +9,7 @@
                 <div class="d-flex m-0 align-items-center justify-content-center">
                     <span class="badge badge-danger" *ngIf="product.stock == 0">Sin stock</span>
                     <app-input-integer [(quantity)]="product.quantity" [max]="product.stock" *ngIf="product.stock"></app-input-integer>
-                    <button class="btn btn-sm btn-outline-success ml-1" [ngClass]="{disabled : product.quantity == 0}" (click)="addToCart(product)" *ngIf="product.stock">Agregar al carrito</button>
+                    <button class="btn btn-sm btn-outline-success ml-1" [ngClass]="{disabled : product.quantity == 0}" (click)="product.quantity ? addToCart(product) : false" *ngIf="product.stock">Agregar al carrito</button>
                 </div>
                 <span class="badge badge-danger w-100" *ngIf="product.stock == product.quantity && product.stock">Stock máximo</span>
             </div>
