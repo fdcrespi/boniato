@@ -4,6 +4,7 @@
             <img class="card-img-top" [src]="product.image" alt="Card image cap">
             <div class="card-body">
                 <h5 class="card-title">{{product.name}}</h5>
+                <p class="bold mt-1 mb-2">{{product.type}}</p>
                 <p class="card-text">{{product.description}}</p>
                 <p class="text-center mb-2" [ngClass]="{'clearance': product.clearance}">{{product.price | currency}}</p>
                 <div class="d-flex m-0 align-items-center justify-content-center">
