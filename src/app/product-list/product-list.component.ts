@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ProductCartService } from '../product-cart.service';
 import { Product } from './product';
 
 
@@ -15,6 +16,7 @@ export class ProductListComponent implements OnInit {
       type: "Pasta",
       price: 130,
       stock: 5,
+      description: "Ravioles rellenos con verdura. Se venden por docena",
       clearance: false,
       quantity: 0
     },
@@ -23,6 +25,7 @@ export class ProductListComponent implements OnInit {
       type: "Pasta",
       price: 130,
       stock: 0,
+      description: "Sorrentinos rellenos con calabaza. Se venden por docena",
       clearance: true,
       quantity: 0
     },
@@ -31,17 +34,24 @@ export class ProductListComponent implements OnInit {
       type: "Vino",
       price: 180,
       stock: 2,
+      description: "Malbec",
       clearance: false,
       quantity: 0
     }
   ];
 
-  constructor() { }
+  constructor(private cart: ProductCartService) { }
 
   ngOnInit(): void {
   }
 
   maxReached(m: string): void{
-    alert('m');
+    alert(m);
+  }
+
+  addToCart(product): void{
+    this.cart.addToCart(product);
+    product.stock -= product.quantity;
+    product.quantity = 0;
   }
 }
